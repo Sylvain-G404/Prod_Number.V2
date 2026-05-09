@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style/main.css" />
+    <link rel="icon" type="image/x-icon" href="../Favicon/Favicon.K.sf.png" />
+    <title>Production de Nombre(s)</title>
+  </head>
+
+  <body>
+    <span id="version">V2.09.05.2026_05:30</span>
+    <div class="content-titre">
+      <h1>Production de Nombre(s)</h1>
+    </div>
+    <div class="content-HUD-joueur"></div>
+    <div class="content-HUD-stock">
+      <ul></ul>
+    </div>
+    <div class="content-table">
+      <table>
+        <thead>
+          <tr>
+            <th>PRODUIT</th>
+            <th>STOCK</th>
+            <th class="recette">RECETTE(S)<br />PRODUIT | QUANTITÉ</th>
+            <th>COÛT</th>
+            <th>PRIX PRODUIT</th>
+            <th>BÉNÉFICE</th>
+            <th class="qtySouhait">QUANTITÉ SOUHAITÉE</th>
+            <th>INVESTIR</th>
+            <th>ACTIONS</th>
+            <th>VENDRE</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <template id="row-template">
+            <tr>
+              <td class="prod"></td>
+              <td class="stock"></td>
+              <td class="recipe"></td>
+              <td class="cout"></td>
+              <td class="prix"></td>
+              <td class="benef"></td>
+              <td>
+                <input class="demande" type="number" min="1" max="100" />
+              </td>
+              <td class="prevision"></td>
+              <td>
+                <button class="craft-btn">Craft</button>
+              </td>
+              <td>
+                <button class="sell-btn">Sell</button>
+              </td>
+            </tr>
+          </template>
+        </tbody>
+      </table>
+    </div>
+
+    <script type="module" src="Script/main.js"></script>
+    <!-- <script src="Script/romanCanvas.js"></script> -->
+  </body>
+</html>
