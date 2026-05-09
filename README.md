@@ -195,18 +195,6 @@ recette = {
 
 ## 📈 Améliorations possibles
 
-- Optimiser les mises à jour DOM // ✅ FAIT
-- Débloquage des Usine pars l'argent / Plutôt que part les Stock Disponible // ✅ FAIT
-- Séparer logique et UI (architecture MVC ou ECS) // ✅ FAIT
-- Ajouter un système de sauvegarde ⏳
-- Ajouter des animations canvas ⏳
-- Refactor state en Map ou objets typés ⏳
-- Refactor Recette fait a la main pour l'instant ⏳
-- Add systhème de livraison / Ajoue du temps "???" / animation... ⏳
-- Une taxe style / Gain par minute devisé par 2 ou multiplié par 2 / tout les heurs .?. ⏳
-- Frais d'entretien de Usine / Usure Usine .?. ⏳
-- Input = craft en groupe donc +0.01€ par unité craft ⏳
-
 - ✅ Séparer logique et UI (architecture MVC/ECS) — 09/05/26 : la logique métier est dans game.js et l’UI dans create_Dom.js / update_Dom.js.
 - ✅ Optimiser les mises à jour DOM — 09/05/26 : seule la ligne concernée est recréée ou mise à jour au lieu de tout le tableau.
 - ✅ Débloquage des Usines par l’argent — 09/05/26 : les lignes “À VENDRE : X €” sont créées dynamiquement et cliquables.
