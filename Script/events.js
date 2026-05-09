@@ -4,7 +4,8 @@ import {
     sellProduct,
     addStock,
     checkAllUnlocks,
-    calculPrevision
+    calculPrevision,
+    coutInput
 } from "./game.js";
 
 
@@ -46,9 +47,11 @@ export function initEvents() {
     // j'écoute les input et j'identifi le ID
     //------------------------------------------
     table.addEventListener("input", (e) => {
+    if (!e.target.matches(".demande")) return;
     const valeur = Number(e.target.value);
     const id = e.target.dataset.demandeId;
 
     calculPrevision(id, valeur);
+    coutInput(id, valeur);
     })
 }

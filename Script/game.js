@@ -1,7 +1,7 @@
 // game.js
 import { state } from "./state.js";
 import { recette } from "./recette.js";
-import { updateTable, updateStockHUD, updateJoueurHUD, updatePrevisionHUD, updateRow } from "./Dom/update_Dom.js";
+import { updateTable, updateStockHUD, updateJoueurHUD, updatePrevisionHUD, updateRow, updateCoutInput } from "./Dom/update_Dom.js";
 import { createRow, initStockHUD, createUsine, initJoueurHUD } from "./Dom/create_Dom.js"; 
 
 
@@ -189,6 +189,10 @@ export function calculPrevision(id, qty){
 
     let coutTotal = 0;
 
+    // ⚙️ Plus cout Input quantité
+    const inputCout = getInputCout(qty);
+    coutTotal += inputCout
+
     // 🔧 coût des ingrédients
     const cout = coutUsine * qty;
     coutTotal += cout;
@@ -197,6 +201,21 @@ export function calculPrevision(id, qty){
 
     updatePrevisionHUD(id, investissement);
     return investissement;
+}
+
+
+export function getInputCout(valeur) {
+    if (isNaN(valeur) || valeur < 1) return 0;
+    return (valeur - 1) * 0.01;
+}
+
+
+//------------------------------------------
+//     CALCULE PREVISION INPUT 0.01€
+//------------------------------------------
+export function coutInput(id, valeur) {
+    const inputCout = getInputCout(valeur);
+    updateCoutInput(id, inputCout);
 }
 
 

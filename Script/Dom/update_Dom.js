@@ -35,6 +35,19 @@ export function updatePrevisionHUD(id, investissement){
 
 
 //------------------------------------------
+//         UPDATE HUD COUT INPUT
+//------------------------------------------
+export function updateCoutInput(id, valeur) {
+    const span = document.querySelector(
+        `[data-input-cout-id="${id}"]`
+    );
+    if (!span) return;
+    span.textContent = `${Number(valeur).toFixed(2)}€`;
+}
+
+
+
+//------------------------------------------
 //       UPDATE HUD STOCK
 //------------------------------------------
 export function updateStockHUD(id) {

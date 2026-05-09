@@ -25,8 +25,12 @@ Game.initEvents();
 /* TEST $$$$$ USINE */
 function tricheUsine(id){
   for (let i = 1; i <= id; i++) {
-    Game.unlockUsines(i); // 🔥
+    // Game.unlockUsines(i); // 🔥
+    Game.state.Usines[i] = Game.createUsine(i);
+    Game.state.Usines[i].achete = true; // déjà achetée
+    Game.createRow(i, Game.state.Usines[i]);
+    Game.initStockHUD(i);
   }
 }
-// tricheUsine(10); // 0 a 10 MAX
+// tricheUsine(10); // 1 a 10 MAX
 

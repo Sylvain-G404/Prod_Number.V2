@@ -459,5 +459,5 @@ function tricheUsine(id){
     unlockUsines(i); // 🔥
   }
 }
-// tricheUsine(9); // 0 a 9 MAX
+// tricheUsine(9); // 1 a 10 MAX
   

@@ -3,7 +3,7 @@ import { state } from "../state.js";
 import { recette } from "../recette.js";
 import { toRoman } from "../Romain/toRoman.js";
 import { initRomanCanvas, draw } from "../Romain/romanCanvas.js";
-import { gainBenefice, calculPrevision, acheterUsine  } from "../game.js";
+import { gainBenefice, calculPrevision, acheterUsine, coutInput  } from "../game.js";
 import { updateJoueurHUD } from "./update_Dom.js";
 
 
@@ -84,6 +84,7 @@ export function initJoueurHUD() {
 export function fillRow(tr, id, usine, qty = 1) {
     const benef = gainBenefice(id);
     const investi = calculPrevision(id, qty);
+    const inputCout = coutInput(id);
 
     tr.id = `row-${id}`;
 
@@ -92,7 +93,7 @@ export function fillRow(tr, id, usine, qty = 1) {
 
     tr.querySelector(".recipe").innerHTML = recette[id]
         ? recette[id].map(r => `
-            <span class="prod" style="color:lime;">${r.id}</span>
+            <span class="prod" style="color:lime;">${toRoman(r.id)}</span>
             <span style="color:white;"> | </span>
             <span class="stock" style="color:red;">${r.qty}</span>
         `).join(" & ")
@@ -111,18 +112,23 @@ export function fillRow(tr, id, usine, qty = 1) {
     // input
     const input = tr.querySelector(".demande");
     input.value = qty;
-    input.dataset.demandeId = id;
+    input.dataset.demandeId = String(id);
+
+    // inputCout
+    const span = tr.querySelector(".input_cout");
+    span.dataset.inputCoutId = String(id);
+    span.textContent = (inputCout ?? 0).toFixed(2) + "€";
 
     // boutons
     tr.querySelector(".craft-btn").dataset.craftId = id;
 
     const sellBtn = tr.querySelector(".sell-btn");
-    sellBtn.dataset.sellId = id;
+    sellBtn.dataset.sellId = String(id);
     sellBtn.disabled = Number(id) === 0;
 
     // prévision
     const prev = tr.querySelector(".prevision");
-    prev.dataset.previsionId = id;
+    prev.dataset.previsionId = String(id);
     prev.textContent = `${Number(investi).toFixed(2)}€`;
 }
 

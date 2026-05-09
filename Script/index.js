@@ -17,7 +17,8 @@ export {
     addStock,
     checkAllUnlocks,
     calculPrevision,
-    acheterUsine
+    acheterUsine,
+    coutInput
 } from "./game.js";
 
 // DOM
@@ -34,7 +35,8 @@ export {
     updateTable,
     updatePrevisionHUD,
     updateStockHUD,
-    updateJoueurHUD
+    updateJoueurHUD,
+    updateCoutInput
 } from "./Dom/update_Dom.js";
 
 // Events
